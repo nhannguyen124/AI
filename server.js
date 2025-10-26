@@ -3,6 +3,10 @@ const cors = require("cors");
 const { GoogleGenerativeAI } = require("@google/generative-ai");
 
 const app = express();
+app.get("/", (req, res) => {
+  res.send("Server đang chạy thành công trên Render 🚀");
+});
+
 app.use(cors());
 app.use(express.json());
 
@@ -64,4 +68,5 @@ Người dùng hỏi: "${userText}"
 });
 
 app.listen(3000, () => console.log("✅ Server chạy ở http://localhost:3000"));
+
 

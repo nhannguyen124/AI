@@ -7,7 +7,7 @@ app.use(cors());
 app.use(express.json());
 
 // ⚠️ Dán API key của bạn tại đây
-const GEMINI_API_KEY = "AIzaSyBLqqGbckfR8SbrYrtQF09tBUMCOGTluXc";
+const GEMINI_API_KEY = process.env.GEMINI_API_KEY;
 const genAI = new GoogleGenerativeAI(GEMINI_API_KEY);
 
 // ✅ Model ổn định nhất hiện nay (theo tài liệu Google)
@@ -64,3 +64,4 @@ Người dùng hỏi: "${userText}"
 });
 
 app.listen(3000, () => console.log("✅ Server chạy ở http://localhost:3000"));
+

@@ -23,7 +23,7 @@ app.post("/chat", async (req, res) => {
     const allowedKeywords = [
       "spo2", "sp02", "nhịp tim", "huyết áp", "nhiệt độ",
       "sức khỏe", "oxy", "y tế", "mạch đập", "đo tim",
-      "đo nhiệt độ", "tình trạng"
+      "đo nhiệt độ", "tình trạng","bệnh","sốt","ốm"
     ];
     const isMedical = allowedKeywords.some((kw) =>
       userText.toLowerCase().includes(kw)
@@ -58,3 +58,4 @@ app.get("/", (req, res) => {
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => console.log(`✅ Server chạy ở cổng ${PORT}`));
+

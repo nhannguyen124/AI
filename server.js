@@ -5,6 +5,13 @@ const { GoogleGenerativeAI } = require("@google/generative-ai");
 const app = express();
 app.use(cors());
 app.use(express.json());
+// Dòng quan trọng nhất: Chỉ định cho Express biết thư mục 'public' chứa index.html
+app.use(express.static(path.join(__dirname, 'public')));
+
+// Nếu người dùng truy cập trang chủ, trả về file index.html bên trong thư mục public
+app.get('/', (req, res) => {
+    res.sendFile(path.join(__dirname, 'public', 'index.html'));
+});
 
 // ⚠️ Dán API key của bạn tại đây
 const GEMINI_API_KEY = "AIzaSyBGMAB9MYB4hybCsW1igNcsTdcx0VWL92Q";
@@ -69,3 +76,4 @@ Người dùng hỏi: "${userText}"
 });
 
 app.listen(3000, () => console.log("✅ Server chạy ở http://localhost:3000"));
+
